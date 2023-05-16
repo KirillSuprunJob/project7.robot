@@ -1,5 +1,3 @@
-console.log(`its work`);
-
 const roads = [
     "Дом Алисы-Дом Боба",
     "Дом Алисы-Почта",
@@ -19,24 +17,25 @@ const roads = [
 
 console.log(`roads`, roads);
 
-function buildGraph(edges){
+function buildGraph(edges) {
     let graph = Object.create(null);
     
     function addEdge(from, to){
         if(graph[from] == null){
             graph[from] = [to];
         } else {
-            graph[from].push[to];
+            graph[from].push(to)
         }
-    };
+    }
 
-    for (let [from, to] of edges.map(r => r.split('-'))){
+    for (let [from, to] of edges.map(r => r.split("-"))){
         addEdge(from, to);
         addEdge(to, from);
-    };
+    }
 
-    return graph
+    return graph;
 }
 
-console.log(`check`, Object.create(null))
+const roadGraph = buildGraph(roads);
 
+console.log(`roadGraph`, roadGraph)
