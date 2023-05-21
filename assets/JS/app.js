@@ -63,3 +63,19 @@ class VillageState {
 
 let first = new VillageState(`Почта`, [{place: "Почта", address: "Дом Алисы"}]);
 let next = first.move("Дом Алисы");
+
+function runRobot(state, robot, memory){
+    for(let turn = 0; ; turn++){
+        if (state.parcels.length == 0){
+            console.log(`Выполнено за ${turn} ходов`);
+            break;
+        }
+
+        let action = robot(state, memory);
+        state = state.move(action.direction)
+        memory = action.memory;
+        console.log(`Переход в направление ${action.direction}`);
+    }
+
+}
+
