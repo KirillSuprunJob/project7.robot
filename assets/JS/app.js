@@ -79,3 +79,20 @@ function runRobot(state, robot, memory){
 
 }
 
+const mailRoute = [
+    "Дом Алисы", "Сарай", "Дом Алисы", "Дом Боба",
+    "Ратуша", "Дом Дарии", "Дом Эрни",
+    "Дом Греты", "Магазин", "Дом Греты", "Ферма", 
+    "Рынок", "Почта"
+];
+
+function routeRobot(state, memory) {
+    if( memory.length == 0){
+        memory = mailRoute;
+    }
+
+    return {
+        direction: memory[0],
+        memory: memory.slice(1)
+    }
+}
